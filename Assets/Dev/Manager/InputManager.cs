@@ -81,7 +81,22 @@ public class InputManager : MonoBehaviour
     void OnSprintStarted(InputAction.CallbackContext ctx) => SprintPressed?.Invoke();
     void OnSprintCanceled(InputAction.CallbackContext ctx) => SprintReleased?.Invoke();
     void OnPauseStarted(InputAction.CallbackContext ctx) => PausePressed?.Invoke();
-    public void CheckState()
+    public void SetPlayerStatePlayer()
+    {
+        Player=PlayerState.Player;
+        CheckState();
+    }
+    public void SetPlayerStateUI()
+    {
+        Player=PlayerState.UI;
+        CheckState();
+    }
+    public void SetPlayerStateCinematic()
+    {
+        Player=PlayerState.Cinematic;
+        CheckState();
+    }
+    void CheckState()
     {
         Inputs.Default.Enable();
         switch (Player)
