@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e528446cfa552574db700150c10843b7, type: 3}
   m_Name: Wheat
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  ingredientName: Wheat
-  ingredientDescription: Yummy wheat
+  entryName: Wheat
+  entryDescription: Yummy wheat :3
   ingredientIcon: {fileID: 21300000, guid: 2ec357a810ef03d479aed02b9561f4fb, type: 3}

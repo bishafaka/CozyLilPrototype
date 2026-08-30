@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class Container : DraggableUIElement
 {
-    [SerializeField] GameObject panelToActivate;
+    [SerializeField] bool isActiveOnStart=false;
 
+    void Start()
+    {
+        gameObject.SetActive(isActiveOnStart);
+    }
     public void TogglePanel()
     {
-        panelToActivate.SetActive(!panelToActivate.activeSelf);
+        gameObject.SetActive(!gameObject.activeSelf);
     }
 }

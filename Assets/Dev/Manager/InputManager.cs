@@ -129,14 +129,14 @@ public class InputManager : MonoBehaviour
     {
         Inputs.Player.Enable();
         Inputs.UI.Disable();
-        Cursor.visible=false;
-        Cursor.lockState=CursorLockMode.Locked;
+        Cursor.visible=true;
+        Cursor.lockState=CursorLockMode.None;
     }
     void SetCinematic()
     {
         Inputs.Player.Disable();
         Inputs.UI.Disable();
-        Cursor.visible=false;
-        Cursor.lockState=CursorLockMode.Locked;
+        Cursor.visible=true;
+        Cursor.lockState=CursorLockMode.None;
     }
 }

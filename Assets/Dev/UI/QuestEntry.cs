@@ -21,8 +21,8 @@ public class QuestEntry : MonoBehaviour
     }
     void Refresh()
     {
-        questName.text=quest.questName;
-        questDescription.text=quest.questDescription;
+        questName.text=quest.entryName;
+        questDescription.text=quest.entryDescription;
         questComplete.isOn=quest.isQuestCompleted;
     }
 }

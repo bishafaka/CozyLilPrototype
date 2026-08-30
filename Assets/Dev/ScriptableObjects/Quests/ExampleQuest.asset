@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7951239155590d14db39eaade9ae30a8, type: 3}
   m_Name: ExampleQuest
   m_EditorClassIdentifier: Assembly-CSharp::Quest
-  questName: Example Quest
-  questDescription: Example quest
+  entryName: ExampleQuest
+  entryDescription: ExampleDescription
   isQuestCompleted: 1

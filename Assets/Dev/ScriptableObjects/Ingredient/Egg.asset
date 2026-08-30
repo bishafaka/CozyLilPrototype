@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e528446cfa552574db700150c10843b7, type: 3}
   m_Name: Egg
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
-  ingredientName: Egg
-  ingredientDescription: Yummy egg
+  entryName: Egg
+  entryDescription: Yunny eggs :3
   ingredientIcon: {fileID: 21300000, guid: 44713ebf64aa394438ecca47ac23c544, type: 3}

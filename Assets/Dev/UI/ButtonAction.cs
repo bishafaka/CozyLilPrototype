@@ -50,7 +50,7 @@ public class ButtonAction : MonoBehaviour
                 break;
         }
     }
-    void OnQuestPressed()
+    public void OnQuestPressed()
     {
         if(buttonContainer!=null)
             buttonContainer.TogglePanel();
