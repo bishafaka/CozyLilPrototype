@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 988314938167596502}
   - component: {fileID: 7547700987420801197}
   - component: {fileID: 3931217475084407253}
-  - component: {fileID: 1082648790167590795}
+  - component: {fileID: 4596528059297197424}
   m_Layer: 5
   m_Name: ScrollViewContainer
   m_TagString: Untagged
@@ -785,7 +785,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1082648790167590795
+--- !u!114 &4596528059297197424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -794,10 +794,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8734392838050706971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee1ef39d305faca4b94c136616ba10df, type: 3}
+  m_Script: {fileID: 11500000, guid: 78a848bc502b0d24d9b075f3e2e088e1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DraggableWindow
+  m_EditorClassIdentifier: Assembly-CSharp::QuestBoard
   canvas: {fileID: 0}
+  panelToActivate: {fileID: 8734392838050706971}
 --- !u!1 &9125195574979847701
 GameObject:
   m_ObjectHideFlags: 0
