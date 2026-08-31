@@ -118,6 +118,15 @@ public partial class @InptSystm: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""deca8d48-87f8-4a72-861c-1d51075b9a6d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -184,6 +193,28 @@ public partial class @InptSystm: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Book"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bf9d2315-19d2-4344-8fdd-02fb8036ae35"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66bff256-c31f-4173-9563-7a879e9568f9"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1248,6 +1279,7 @@ public partial class @InptSystm: IInputActionCollection2, IDisposable
         m_Default_Pause = m_Default.FindAction("Pause", throwIfNotFound: true);
         m_Default_Quest = m_Default.FindAction("Quest", throwIfNotFound: true);
         m_Default_Book = m_Default.FindAction("Book", throwIfNotFound: true);
+        m_Default_Inventory = m_Default.FindAction("Inventory", throwIfNotFound: true);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
@@ -1356,6 +1388,7 @@ public partial class @InptSystm: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_Pause;
     private readonly InputAction m_Default_Quest;
     private readonly InputAction m_Default_Book;
+    private readonly InputAction m_Default_Inventory;
     /// <summary>
     /// Provides access to input actions defined in input action map "Default".
     /// </summary>
@@ -1379,6 +1412,10 @@ public partial class @InptSystm: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Default/Book".
         /// </summary>
         public InputAction @Book => m_Wrapper.m_Default_Book;
+        /// <summary>
+        /// Provides access to the underlying input action "Default/Inventory".
+        /// </summary>
+        public InputAction @Inventory => m_Wrapper.m_Default_Inventory;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1414,6 +1451,9 @@ public partial class @InptSystm: IInputActionCollection2, IDisposable
             @Book.started += instance.OnBook;
             @Book.performed += instance.OnBook;
             @Book.canceled += instance.OnBook;
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
         }
 
         /// <summary>
@@ -1434,6 +1474,9 @@ public partial class @InptSystm: IInputActionCollection2, IDisposable
             @Book.started -= instance.OnBook;
             @Book.performed -= instance.OnBook;
             @Book.canceled -= instance.OnBook;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
         }
 
         /// <summary>
@@ -1939,6 +1982,13 @@ public partial class @InptSystm: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBook(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Inventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventory(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player" which allows adding and removing callbacks.

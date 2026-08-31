@@ -6,7 +6,8 @@ public class ButtonAction : MonoBehaviour
     {
         None,
         Quest,
-        Book
+        Book,
+        Inventory
     }
     [SerializeField] InputActionType actionType;
     [SerializeField] Container buttonContainer;
@@ -37,6 +38,9 @@ public class ButtonAction : MonoBehaviour
             case InputActionType.Book:
                 InputManager.Instance.BookPressed+=OnBookPressed;
                 break;
+            case InputActionType.Inventory:
+                InputManager.Instance.InventoryPressed+=OnInventoryPressed;
+                break;
             default:
                 break;
         }
@@ -53,6 +57,9 @@ public class ButtonAction : MonoBehaviour
             case InputActionType.Book:
                 InputManager.Instance.BookPressed-=OnBookPressed;
                 break;
+            case InputActionType.Inventory:
+                InputManager.Instance.InventoryPressed-=OnInventoryPressed;
+                break;
             default:
                 break;
         }
@@ -63,6 +70,11 @@ public class ButtonAction : MonoBehaviour
             buttonContainer.TogglePanel();
     }
     public void OnBookPressed()
+    {
+        if (buttonContainer!=null)
+            buttonContainer.TogglePanel();
+    }
+    public void OnInventoryPressed()
     {
         if (buttonContainer!=null)
             buttonContainer.TogglePanel();
