@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
     public event Action SprintReleased;
     public event Action PausePressed;
     public event Action QuestPressed;
+    public event Action BookPressed;
 
     void Awake()
     {
@@ -59,6 +60,7 @@ public class InputManager : MonoBehaviour
         Inputs.Player.Sprint.canceled+=OnSprintCanceled;
         Inputs.Default.Pause.started+=OnPauseStarted;
         Inputs.Default.Quest.started+=OnQuestStarted;
+        Inputs.Default.Book.started+=OnBookStarted;
     }
     void UnregisterEvent()
     {
@@ -74,6 +76,7 @@ public class InputManager : MonoBehaviour
         Inputs.Player.Sprint.canceled-=OnSprintCanceled;
         Inputs.Default.Pause.started-=OnPauseStarted;
         Inputs.Default.Quest.started-=OnQuestStarted;
+        Inputs.Default.Book.started-=OnBookStarted;
     }
     void OnMove(InputAction.CallbackContext ctx) => Move?.Invoke(ctx.ReadValue<Vector2>());
     void OnLook(InputAction.CallbackContext ctx) => Look?.Invoke(ctx.ReadValue<Vector2>());
@@ -85,6 +88,7 @@ public class InputManager : MonoBehaviour
     void OnSprintCanceled(InputAction.CallbackContext ctx) => SprintReleased?.Invoke();
     void OnPauseStarted(InputAction.CallbackContext ctx) => PausePressed?.Invoke();
     void OnQuestStarted(InputAction.CallbackContext ctx) => QuestPressed?.Invoke();
+    void OnBookStarted(InputAction.CallbackContext ctx) => BookPressed?.Invoke();
     public void SetPlayerStatePlayer()
     {
         Player=PlayerState.Player;
