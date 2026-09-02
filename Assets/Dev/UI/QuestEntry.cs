@@ -9,20 +9,20 @@ public class QuestEntry : MonoBehaviour
     [SerializeField] TextMeshProUGUI questDescription;
     [SerializeField] Toggle questComplete;
 
+    void InitialiseQuest(Quest newQuest)
+    {
+        questName.text=newQuest.entryName;
+        questDescription.text=newQuest.entryDescription;
+        questComplete.isOn=newQuest.isQuestCompleted;
+    }
     void Start()
     {
-        if (quest!=null && questName!=null && questDescription!=null)
-            Refresh();
+        if(quest!=null && questName!=null && questDescription!=null)
+            InitialiseQuest(quest);
     }
     void OnValidate()
     {
-        if (quest!=null && questName!=null && questDescription!=null)
-            Refresh();
-    }
-    void Refresh()
-    {
-        questName.text=quest.entryName;
-        questDescription.text=quest.entryDescription;
-        questComplete.isOn=quest.isQuestCompleted;
+        if(quest!=null && questName!=null && questDescription!=null)
+            InitialiseQuest(quest);
     }
 }

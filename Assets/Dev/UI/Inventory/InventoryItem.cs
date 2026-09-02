@@ -5,7 +5,13 @@ using UnityEngine.UI;
 public class InventoryItem : DraggableUIElement
 {
     [SerializeField] Image image;
+    [HideInInspector] public Item item;
     [HideInInspector] public Transform parentOnEndDrag;
+    public void InitialiseItem(Item newItem)
+    {
+        item=newItem;
+        image.sprite=newItem.itemIcon;
+    }
     public override void Awake()
     {
         base.Awake();
@@ -26,7 +32,6 @@ public class InventoryItem : DraggableUIElement
     public override void OnEndDrag(PointerEventData eventData)
     {
         image.raycastTarget=true;
-        Debug.Log(parentOnEndDrag);
         transform.SetParent(parentOnEndDrag);
         base.OnEndDrag(eventData);
     }
