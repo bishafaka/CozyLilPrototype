@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(RectTransform))]
-[RequireComponent(typeof(Animator))]
 public class DraggableUIElement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     Canvas canvas;
@@ -11,7 +10,7 @@ public class DraggableUIElement : MonoBehaviour, IBeginDragHandler, IDragHandler
     Vector2 position;
     const string ON_END_DRAG_TRIGGER = "OnEndDrag";
 
-    void Awake()
+    virtual public void Awake()
     {
         canvas=GetComponentInParent<Canvas>();
         rectTransform=GetComponent<RectTransform>();
@@ -23,16 +22,16 @@ public class DraggableUIElement : MonoBehaviour, IBeginDragHandler, IDragHandler
         if(rectTransform!=null)
             rectTransform.anchoredPosition=position;
     }
-    public void OnBeginDrag(PointerEventData eventData)
+    virtual public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("OnBeginDrag");
     }
-    public void OnDrag(PointerEventData eventData)
+    virtual public void OnDrag(PointerEventData eventData)
     {
         if(canvas!=null && rectTransform!=null)
             rectTransform.anchoredPosition+=eventData.delta/canvas.scaleFactor;
     }
-    public void OnEndDrag(PointerEventData eventData)
+    virtual public void OnEndDrag(PointerEventData eventData)
     {
         if(animator!=null)
             animator.SetTrigger(ON_END_DRAG_TRIGGER);
